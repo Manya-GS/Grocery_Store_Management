@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Get Products</title>
+</head>
+<body>
+    <h1>Product List (from Flask API)</h1>
+    <button onclick="loadProducts()">Load Products</button>
+    <ul id="productList"></ul>
+
+    <script>
+        const api_base_url = "http://127.0.0.1:5000";
+
+        function loadProducts() {
+            fetch(api_base_url + "/getProducts")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(products => {
+                    const list = document.getElementById("productList");
+                    list.innerHTML = ""; // clear old list
+                    products.forEach(product => {
+                        const li = document.createElement("li");
+                        li.textContent = `${product.product_name} (${product.uom_name}) - $${product.price_per_unit}`;
+                        list.appendChild(li);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching products:", error);
+                });
+        }
+    </script>
+</body>
+</html>

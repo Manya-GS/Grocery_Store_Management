@@ -1,0 +1,244 @@
+/* ===== RESET & GLOBAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== BLURRED BACKGROUND IMAGE ===== */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../image/image.jpg') no-repeat center center;
+    background-size: cover;  
+    filter: blur(1px) brightness(70%);
+    z-index: -1;
+}
+
+/* ===== MAIN HEADINGS ===== */
+h1 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+h2 {
+    color: #e4dad7; /* Gold subheading */
+    text-align: center;
+}
+
+/* ===== CARD / SQUARES ===== */
+.card {
+    background: rgba(255, 255, 255, 0.88);
+    color: #333;
+    border-radius: 16px;
+    padding: 25px;
+    width: 280px;
+    height: 200px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    color: #ff5733;
+}
+
+.card h4 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.card button {
+    background: linear-gradient(90deg, #2980b9, #3498db);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.card button:hover {
+    background: linear-gradient(90deg, #1f6691, #2980b9);
+}
+
+/* ===== TABLE HEADERS ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+table thead th {
+    background-color: #ff5733;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+table thead th:hover {
+    background-color: #ff7f50;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #eef7ff;
+    transition: background 0.2s ease-in-out;
+}
+
+/* ===== FORMS ===== */
+label {
+    color: #ffffff; /* Visible over background */
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+input[type="text"],
+select {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 2px solid #ccc;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+input[type="text"]:focus,
+select:focus {
+    outline: none;
+    border-color: #27ae60;
+    box-shadow: 0 0 5px rgba(39, 174, 96, 0.3);
+}
+
+/* ===== BUTTONS ===== */
+button {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #219150;
+}
+
+button.place-order {
+    background-color: #2980b9;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+
+button.place-order:hover {
+    background-color: #1f6691;
+}
+
+/* ===== LAYOUT ===== */
+.content-wrapper {
+    flex: 1;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+}
+
+.card-container,
+.table-container,
+.form-container {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 250px;
+    background-color: rgba(44, 62, 80, 0.95);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    z-index: 2;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sidebar a {
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: background 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: rgba(52, 73, 94, 0.9);
+}
+
+/* ===== INDEX PAGE CONTAINER ===== */
+.index-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
